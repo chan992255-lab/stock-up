@@ -1,0 +1,13 @@
+{
+  "name": "스톡업 (StockUp)",
+  "short_name": "스톡업",
+  "description": "1,000만 원 모의투자 · 실시간 시세 · 물타기 계산기 · 차트 게임",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101014",
+  "theme_color": "#101014",
+  "lang": "ko",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
