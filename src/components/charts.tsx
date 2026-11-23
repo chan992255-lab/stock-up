@@ -133,8 +133,8 @@ export function AreaChart({
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
       />
-      <circle cx={last[0] - 3} cy={last[1]} r={3.4} fill={color} />
-      <circle cx={last[0] - 3} cy={last[1]} r={7} fill={color} opacity={0.22} />
+      <circle cx={Math.min(W - 6, last[0])} cy={last[1]} r={3.4} fill={color} />
+      <circle cx={Math.min(W - 6, last[0])} cy={last[1]} r={7} fill={color} opacity={0.22} />
     </svg>
   );
 }

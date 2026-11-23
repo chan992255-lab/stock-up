@@ -64,7 +64,11 @@ export function OrderSheet({
         : 0
       : (held?.qty ?? 0);
   const shortfall = side === 'buy' ? Math.max(0, amount - cash) : 0;
-  const valid = !!stock && price > 0 && qty > 0 && amount <= cash + 0.5 && qty <= maxQty;
+  const valid =
+    !!stock &&
+    price > 0 &&
+    qty > 0 &&
+    (side === 'buy' ? amount <= cash + 0.5 : qty <= maxQty);
   const realized =
     side === 'sell' && held ? (price - held.avg) * qty * fx : 0;
 
@@ -75,7 +79,7 @@ export function OrderSheet({
         ? `보유 현금으로는 최대 ${SOON.format(maxQty)}주까지 매수할 수 있어요.`
         : `보유 수량은 ${SOON.format(maxQty)}주예요.`;
     }
-    if (shortfall > 0) return `${won(shortfall)}이 부족해요.`;
+    if (side === 'buy' && shortfall > 0) return `${won(shortfall)}이 부족해요.`;
     return '';
   }, [stock, qty, maxQty, side, shortfall]);
 

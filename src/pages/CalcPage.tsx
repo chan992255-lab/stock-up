@@ -40,15 +40,15 @@ function NumField({
 
 export function CalcPage({ api }: { api: AppApi }) {
   const s = useSummary(api.trading.state);
-  const [avg, setAvg] = useState('72000');
+  const [avg, setAvg] = useState('72,000');
   const [qty, setQty] = useState('20');
-  const [addPrice, setAddPrice] = useState('65000');
+  const [addPrice, setAddPrice] = useState('65,000');
   const [addQty, setAddQty] = useState('20');
 
-  const [buyPrice, setBuyPrice] = useState('68000');
+  const [buyPrice, setBuyPrice] = useState('68,000');
   const [buyQty, setBuyQty] = useState('10');
   const [mode, setMode] = useState<'price' | 'pct'>('price');
-  const [sellPrice, setSellPrice] = useState('82000');
+  const [sellPrice, setSellPrice] = useState('82,000');
   const [targetPct, setTargetPct] = useState('20');
 
   const m = useMemo(() => {

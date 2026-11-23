@@ -170,7 +170,11 @@ export function useTrading() {
       const prices = { ...prev.prices };
       STOCKS.forEach((s) => {
         const base = prices[s.id] ?? s.price;
-        prices[s.id] = Math.max(1, Math.round(base * (1 + pct / 100)));
+        const next = base * (1 + pct / 100);
+        prices[s.id] =
+          s.currency === 'USD'
+            ? Math.max(0.01, Math.round(next * 100) / 100)
+            : Math.max(1, Math.round(next));
       });
       return { ...prev, prices };
     });
